@@ -1,44 +1,74 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog Tech</title>
-    <link rel="stylesheet" href="style.css">
+    <title>EcoResíduos - Gestão Consciente e Reciclagem</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
-    <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+                    <i class="fa-solid fa-recycle text-xl"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight bg-gradient-to-r from-brand-600 to-emerald-500 bg-clip-text text-transparent">
+                    EcoResíduos
+                </span>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                <a href="#guia" class="hover:text-brand-500 transition-colors">Guia de Descarte</a>
+                <a href="#calculadora" class="hover:text-brand-500 transition-colors">Decomposição</a>
+                <a href="#ecopontos" class="hover:text-brand-500 transition-colors">Ecopontos</a>
+                <a href="#desafio" class="hover:text-brand-500 transition-colors">EcoPontos App</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-500 transition-all">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
+                </button>
+                <a href="#guia" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold text-sm text-white bg-brand-600 hover:bg-brand-700 transition-all shadow-md shadow-brand-600/20">
+                    Aprender a Separar
+                </a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <!-- Post 1 -->
-        <article>
-            <!-- Substitua pelo caminho correto da sua imagem -->
-            <img src="imagem1.png" alt="Ícone Post 1"> 
-            <h2>Meu primeiro post</h2>
-            <p class="autor">Por: Marcelo Paludetto</p>
-            <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p>
-        </article>
-
-        <!-- Post 2 -->
-        <article>
-            <img src="imagem2.png" alt="Ícone Post 2">
-            <h2>A quantidade de dados no mundo é surreal</h2>
-            <p class="autor">Por: Marcelo Paludetto</p>
-            <p>Estima-se que 90% de todos os dados existentes no mundo hoje foram gerados apenas nos últimos dois anos. Vivemos em uma verdadeira explosão de informação que não para de acelerar.</p>
-        </article>
-
-        <!-- Post 3 -->
-        <article>
-            <img src="imagem3.png" alt="Ícone Post 3">
-            <h2>O primeiro mouse não era de plástico</h2>
-            <p class="autor">Por: Giuliana Cantori</p>
-            <p>Antes do design ergonômico e das luzes RGB, o primeiro mouse do mundo foi construído em madeira! Criado por Douglas Engelbart em 1964, ele tinha o formato de uma caixa quadrada e apenas um botão.</p>
-        </article>
-    </main>
-
-</body>
-</html>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 border border-brand
