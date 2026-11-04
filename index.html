@@ -127,7 +127,7 @@
                 <!-- Search Input -->
                 <div class="mt-8 relative max-w-xl mx-auto">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="searchInput" placeholder="Ex: garrafa pet, entulho, lâmpada, óleo, sofás..." 
+                    <input type="text" id="searchInput" placeholder="Ex: garrafa pet, remédio, eletrodomésticos, óleo, sofás..." 
                         class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 border-none ring-1 ring-slate-200 dark:ring-slate-700 focus:ring-2 focus:ring-brand-500 outline-none text-slate-800 dark:text-slate-100 shadow-sm transition-all">
                 </div>
 
@@ -192,7 +192,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-12">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Ecopontos da Prefeitura de Curitiba</h2>
-                <p class="mt-3 text-slate-600 dark:text-slate-400">Locais autorizados para descarte gratuito de restos de obra, podas, móveis velhos e eletrodomésticos.</p>
+                <p class="mt-3 text-slate-600 dark:text-slate-400">Locais autorizados para descarte gratuito de restos de obra, podas, móveis velhos, eletrodomésticos e eletrônicos.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -256,7 +256,6 @@
 
     <!-- Scripts JavaScript -->
     <script>
-        // Executar tudo apenas após a página carregar por completo
         document.addEventListener("DOMContentLoaded", function () {
 
             // Atualiza ano no footer
@@ -270,12 +269,14 @@
                 });
             }
 
-            // Dados dos Resíduos
+            // Dados dos Resíduos (Com novos itens adicionados)
             const wasteData = [
                 { name: "Garrafa PET", category: "plastico", color: "bg-red-500", bin: "Lixo Que Não É Lixo (Reciclável)", decomp: "400+ Anos", icon: "fa-bottle-water", tips: "Lave levemente para retirar o excesso antes de colocar no caminhão de reciclagem." },
                 { name: "Caixas de Papelão", category: "papel", color: "bg-blue-500", bin: "Lixo Que Não É Lixo (Reciclável)", decomp: "3 a 6 Meses", icon: "fa-box", tips: "Dobre e desmonte as caixas para economizar espaço no recipiente verde/azul." },
                 { name: "Vidros e Potes", category: "vidro", color: "bg-emerald-500", bin: "Lixo Que Não É Lixo (Embalado)", decomp: "Indeterminado", icon: "fa-wine-bottle", tips: "Se estiver quebrado, coloque dentro de uma caixa de papelão ou garrafa PET para não ferir os coletores." },
                 { name: "Latas de Alumínio", category: "metal", color: "bg-amber-500", bin: "Lixo Que Não É Lixo (Reciclável)", decomp: "200 a 500 Anos", icon: "fa-ban", tips: "100% reciclável. Você também pode trocar no programa Câmbio Verde dependendo da quantidade." },
+                { name: "Medicamentos Vencidos", category: "especial", color: "bg-rose-600", bin: "Farmácias / Unidades de Saúde", decomp: "Polui a Água", icon: "fa-pills", tips: "Nunca jogue na privada ou no lixo comum. Entregue em farmácias credenciadas ou Unidades de Saúde (SMS)." },
+                { name: "Eletrodomésticos e E-Lixo", category: "especial", color: "bg-indigo-600", bin: "Ecopontos / Ruas da Cidadania", decomp: "Contamina Solo", icon: "fa-tv", tips: "Computadores, micro-ondas e celulares velhos devem ser levados ao Ecoponto ou nos coletores de e-lixo de Curitiba." },
                 { name: "Pilhas e Baterias", category: "especial", color: "bg-purple-600", bin: "Ecoponto / Terminais de Ônibus", decomp: "Contamina Solo", icon: "fa-battery-full", tips: "Deposite nos coletores específicos presentes nos Terminais Urbanos de Curitiba e Ruas da Cidadania." },
                 { name: "Sofás e Móveis Velhos", category: "especial", color: "bg-orange-600", bin: "Ecoponto Curitiba", decomp: "Grande Volume", icon: "fa-couch", tips: "Leve até um Ecoponto municipal (ex: Ecoponto Érico Veríssimo ou Élcio César) ou use a Coleta de Volumosos." },
                 { name: "Restos de Obra / Entulho", category: "especial", color: "bg-slate-600", bin: "Ecoponto (Até 1m³)", decomp: "Indefinido", icon: "fa-trowel-bricks", tips: "Entulho de pequenas reformas pode ser entregue gratuitamente nos Ecopontos da Prefeitura." },
@@ -316,10 +317,8 @@
                 });
             }
 
-            // Inicializa a renderização do guia
             renderWaste(wasteData);
 
-            // Filtro por busca e categorias
             let activeCategory = 'all';
 
             function filterItems() {
@@ -350,7 +349,7 @@
                 });
             });
 
-            // Calculadora de Impacto
+            // Calculadora
             const inputPet = document.getElementById('inputPet');
             const inputCan = document.getElementById('inputCan');
             const inputBag = document.getElementById('inputBag');
@@ -382,12 +381,13 @@
             });
             updateCalc();
 
-            // Ecopontos reais de Curitiba
+            // Ecopontos (Mais opções adicionadas)
             const ecopointsCuritiba = [
                 { name: "Ecoponto Érico Veríssimo", address: "Rua Érico Veríssimo, s/n - Alto Boqueirão", types: "Entulho, Móveis, Podas, Eletrônicos", hours: "Seg a Sáb: 08h às 17h" },
                 { name: "Ecoponto Élcio César", address: "Rua Élcio César Bertolini, s/n - Cajuru", types: "Móveis velhos, Caliça/Entulho, Madeiras", hours: "Seg a Sáb: 08h às 17h" },
                 { name: "Ecoponto Jurema", address: "Rua Jurema, s/n - Tatuquara", types: "Restos de Obras, Podas de Árvores, Sofás", hours: "Seg a Sáb: 08h às 17h" },
-                { name: "Ponto do Câmbio Verde (Regional Bairro Novo)", address: "Consulte o calendário do caminhão no portal da Prefeitura", types: "Troca 4kg de reciclável por 1kg de alimento", hours: "Quinzenal" }
+                { name: "Ruas da Cidadania (Postos E-Lixo)", address: "Principais Terminais Urbanos de Curitiba", types: "Pilhas, Baterias, Eletrônicos de Pequeno Porte", hours: "Seg a Sex: 08h às 18h" },
+                { name: "Ponto do Câmbio Verde", address: "Consulte o calendário do caminhão no portal da Prefeitura", types: "Troca 4kg de reciclável por 1kg de alimento", hours: "Programação Quinzenal" }
             ];
 
             const ecopointList = document.getElementById('ecopointList');
@@ -415,8 +415,10 @@
             const habits = [
                 { id: 1, text: "Coloquei o 'Lixo Que Não É Lixo' para a coleta seletiva de Curitiba", points: 20 },
                 { id: 2, text: "Levei óleo de cozinha ou recicláveis para o programa Câmbio Verde", points: 25 },
-                { id: 3, text: "Embalava vidros quebrados com segurança antes do descarte", points: 15 },
-                { id: 4, text: "Utilizei sacolas reutilizáveis (ecobags) nas compras da semana", points: 10 }
+                { id: 3, text: "Levei pilhas/baterias velhas a um ponto de coleta em Terminal ou Rua da Cidadania", points: 20 },
+                { id: 4, text: "Separei medicamentos vencidos para descarte correto em farmácias/postos", points: 20 },
+                { id: 5, text: "Embalava vidros quebrados com segurança antes do descarte", points: 15 },
+                { id: 6, text: "Utilizei sacolas reutilizáveis (ecobags) nas compras da semana", points: 10 }
             ];
 
             let score = 0;
@@ -446,5 +448,3 @@
     </script>
 </body>
 </html>
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading
